@@ -3,7 +3,7 @@ function parseAndDisplayJson() {
     try {
         const jsonObj = JSON.parse(jsonInput);
         document.getElementById('jsonViewer').innerHTML = '';
-        buildTree(jsonObj, document.getElementById('jsonViewer'), root);
+        buildTree(jsonObj, document.getElementById('jsonViewer'), "root");
     } catch (e) {
         document.getElementById('jsonViewer').innerHTML = '<p style="color: red;">Invalid JSON</p>'
     }
@@ -20,7 +20,7 @@ function buildTree(obj, parentElement, key) {
         item.appendChild(keySpan);
 
         const childContainer = document.createElement('div');
-        childContainer.className = 'hidden' + (Array.isArray(obj) ? 'array' : 'object');
+        childContainer.className = 'hidden ' + (Array.isArray(obj) ? 'array' : 'object');
         item.appendChild(childContainer);
 
         for (const childKey in obj) {
@@ -39,7 +39,7 @@ function buildTree(obj, parentElement, key) {
             }
         };
     } else {
-        item.innerHTML = '<span class="key">' + key + ': </span' + '<span class="' + getType(obj) + '">' + obj + '</span>';
+        item.innerHTML = '<span class="key">' + key + ': </span>' + '<span class="' + getType(obj) + '">' + obj + '</span>';
     }
 }
 

@@ -57,3 +57,61 @@ input[type=file]::file-selector-button:hover {
     overflow: scroll;
     font-size: 14px;
 }
+
+.collapsible {
+    cursor: pointer;
+    position: relative;
+    padding-left: 20px;
+}
+
+.collapsible::before {
+    content: '▶';
+    color: #555;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 14px;
+    line-height: 1;
+    padding-right: 5px;
+}
+
+.collapsible.collapsed::before {
+    content: '▼';
+}
+
+.hidden {
+    display: none;
+}
+
+.key {
+    color: #0366d6;
+    font-weight: bold;
+}
+
+.string{
+    color: #22863a;
+}
+
+.number{
+    color: #032f62;
+}
+
+.object{
+    margin-left: 15px;
+}
+
+.array{
+    margin-left: 15px;
+}
+
+.unknown{
+    color: #555;
+}
+
+@media screen and (max-width: 1350px) {
+    body{
+        flex-direction: column;
+        padding: 30px;
+    }
+}
